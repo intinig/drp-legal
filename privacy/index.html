@@ -16,42 +16,47 @@
 </head>
 <body>
 <h1>Privacy Policy</h1>
-<p class="updated">Effective 2026-06-17</p>
+<p class="updated">Effective 2026-06-18</p>
 
-<p><strong>Short version: the Bot has no database and stores no personal data.</strong> It reads the command you send, replies, and forgets it.</p>
+<p><strong>Short version: the Bot keeps no database and writes nothing to disk.</strong> The only personal data it ever holds is your Path of Exile session token (<code>POESESSID</code>) &mdash; and only if you choose to connect your account for live rare-item pricing. It is held in memory only, used solely for <em>your own</em> searches, auto-expires, is lost whenever the Bot restarts, and you can delete it any time with <code>/logout</code>.</p>
 
 <h2>1. What the Bot processes</h2>
 <p>When you use a slash command, Discord sends the Bot the data needed to handle it: your Discord user ID, the command and any arguments you provide (for example an item name, or the item text you paste into <code>/paste</code>), and the server/channel where you invoked it. This happens only when you actively use a command.</p>
+<p>For <strong>live rare-item pricing</strong> (for example pricing a rare item via <code>/paste</code>), the Bot will ask you &mdash; once &mdash; to provide your Path of Exile session token (<code>POESESSID</code>) through a private Discord form. This token is a credential that lets the Bot query the official Path of Exile trade site <em>as you</em>. Providing it is entirely optional; if you don't, live rare-item pricing is simply unavailable to you, and the rest of the Bot still works.</p>
 
 <h2>2. How it is used</h2>
-<p>That input is used solely to generate an immediate reply. It is processed in memory and discarded once the response is sent. It is never written to a database, because there isn't one.</p>
+<p>Command input is used solely to generate an immediate reply. It is processed in memory and discarded once the response is sent. It is never written to a database, because there isn't one.</p>
+<p>Your <code>POESESSID</code>, if you provide it, is held <strong>only in the server's memory</strong> (never written to disk) and is used <strong>solely to run your own trade searches</strong> on the official Path of Exile trade site on your behalf. It is automatically discarded after a period of inactivity, is lost whenever the Bot restarts, and is removed immediately when you run <code>/logout</code>. It is never used for anyone else's searches and is never shared.</p>
 
 <h2>3. What the Bot does not do</h2>
 <ul>
-  <li>No persistent storage of your messages, inputs, or IDs.</li>
+  <li>No on-disk storage of your messages, inputs, IDs, or session token &mdash; nothing is persisted.</li>
   <li>No profiling, advertising, analytics, or behavioural tracking.</li>
   <li>No selling, renting, or sharing of your data with anyone.</li>
 </ul>
 
-<h2>4. Logging</h2>
-<p>The server keeps minimal, short-lived operational logs (errors and aggregate counts) to keep the Bot running. These are not used to identify or profile individuals and are not shared.</p>
+<h2>4. Trade requests &amp; residential proxy</h2>
+<p>To stay within the Path of Exile trade site's rate limits, the Bot routes each member's trade requests through a third-party <strong>residential proxy provider (IPRoyal)</strong>, so your searches use a network address tied to your own session rather than one shared server address. The connection between the Bot and the Path of Exile site is encrypted (HTTPS): the proxy relays this traffic and can see that a connection is made to the trade site, but is not given your session token or the contents of your requests in readable form.</p>
 
-<h2>5. Third parties</h2>
-<p>You interact with the Bot through <strong>Discord</strong>, whose handling of your data is governed by <a href="https://discord.com/privacy">Discord's Privacy Policy</a>. The Bot fetches public market data from <strong>poe.ninja</strong>; it does <strong>not</strong> send any of your information to poe.ninja.</p>
+<h2>5. Logging</h2>
+<p>The server keeps minimal, short-lived operational logs (errors and aggregate counts) to keep the Bot running. Your <code>POESESSID</code> is never written to these logs. Logs are not used to identify or profile individuals and are not shared.</p>
 
-<h2>6. Hosting &amp; location</h2>
+<h2>6. Third parties</h2>
+<p>You interact with the Bot through <strong>Discord</strong>, whose handling of your data is governed by <a href="https://discord.com/privacy">Discord's Privacy Policy</a>. The Bot fetches public market data from <strong>poe.ninja</strong>; it does <strong>not</strong> send any of your information to poe.ninja. Live rare-item pricing queries the official <strong>Path of Exile</strong> trade site, operated by Grinding Gear Games (GGG); your use of your own Path of Exile account is governed by GGG's terms. Those trade requests are relayed through <strong>IPRoyal</strong> as described in &sect;4.</p>
+
+<h2>7. Hosting &amp; location</h2>
 <p>The Bot runs on a private server hosted in the European Union (Germany).</p>
 
-<h2>7. Data retention &amp; your rights</h2>
-<p>Because nothing is stored, there is no personal data to retain, export, or delete. If you have questions or concerns, contact us (below) and we will help.</p>
+<h2>8. Data retention &amp; your rights</h2>
+<p>The Bot stores nothing on disk, so there is normally no personal data to retain, export, or delete. The one exception is your <code>POESESSID</code> if you connect your account: it lives only in memory, auto-expires after a period of inactivity, is erased whenever the Bot restarts, and you can delete it instantly with <code>/logout</code>. We recommend also logging out on the Path of Exile website afterwards to invalidate the token there. If you have any questions or concerns, contact us (below) and we will help.</p>
 
-<h2>8. Children</h2>
+<h2>9. Children</h2>
 <p>The Bot is not directed at anyone below Discord's minimum age requirement for their country.</p>
 
-<h2>9. Changes</h2>
+<h2>10. Changes</h2>
 <p>This policy may be updated; the "Effective" date above reflects the latest version.</p>
 
-<h2>10. Contact</h2>
+<h2>11. Contact</h2>
 <p><a href="https://github.com/intinig/dr-peste-redux/issues">https://github.com/intinig/dr-peste-redux/issues</a></p>
 
 <footer>See also our <a href="/terms">Terms of Service</a>. · drp.pme.it</footer>
